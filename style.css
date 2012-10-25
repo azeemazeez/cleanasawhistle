@@ -570,8 +570,10 @@ THEME SPECIFIC CSS STARTS BELOW
 #masthead a {text-decoration: none;}
 #masthead a:hover {text-decoration: underline; color: #3b6ea5}
 
-a, a:visited {text-decoration: none; color:#555;}
-a:hover {text-decoration: underline}
+a, a:visited {color:#555;}
+a:hover {color:#3b6ea5;}
+/*a, a:visited {text-decoration: none; color:#555;}*/
+/*a:hover {text-decoration: underline}*/
 
 /* - SITE STRUCTURE
 ------------------------------------------------------------*/
@@ -584,10 +586,14 @@ a:hover {text-decoration: underline}
 
 /* - POST STRUCUTRE
 ------------------------------------------------------------*/
+.entry-header a {text-decoration: none}
+.entry-header a:hover {text-decoration: underline}
 .entry-title {text-align:center; font-size: 28px; line-height: 26px; margin-top:60px; font-family: Georgia;}
 .entry-title a {color:#333;}
+.entry-title a:hover {color:#3b6ea5;}
 .entry-meta {text-align:center; font-size:12px; color:#777;}
 .entry-meta a {color:#777;}
+.entry-meta a:hover {color:#3b6ea5}
 .entry-content {font-size:14px; color:#333;}
 #page .entry-content a {color:#000; text-decoration: underline}
 #page .entry-content a:hover {color:#3b6ea5;}
@@ -598,8 +604,8 @@ footer.entry-meta {border-bottom:1px solid #cacaca; padding-bottom:10px; padding
 ------------------------------------------------------------*/
 #secondary {float:left; width:100%;}
 .sidebar {width:48%; font-size:14px; margin-top:20px; color:#	555;}
-#secondary .sidebar a {color:#999; text-decoration: underline}
-#secondary .sidebar a:hover {color:#3b6ea5;}
+#secondary .sidebar a {color:#999; text-decoration: none}
+#secondary .sidebar a:hover {color:#3b6ea5; text-decoration: underline;}
 #sidebar-1 {float:left;}
 #sidebar-2 {float:right;}
 .sidebar ul {margin:0; padding:0;}
@@ -621,7 +627,7 @@ footer.entry-meta {border-bottom:1px solid #cacaca; padding-bottom:10px; padding
 .comments-title, #reply-title {font-size:20px; font-family: Georgia; color:#333;}
 .comment-notes {color:#999; font-size:12px;}
 #comments p {margin-bottom:18px;}
-#comments input {margin-right:250px; width:260px; float:right; }
+#comments label {float:left; width:60px;}
 .form-allowed-tags, .form-allowed-tags code {font-size:11px; color:#999;}
 #comments .form-submit input {margin-right:0; float:none;}
 .awaiting-moderation {background-color:#ffffcc; padding:2px;}
@@ -633,12 +639,13 @@ li.comment .children li{border-bottom:none;}
 .comment footer a {color:#555; text-decoration: underline}
 .comment footer a:hover {color:#3b6ea5;}
 .comment .avatar {float:left; margin:0 6px 6px 0;}
+.required {display: none}
 
 /* - ARCHIVES
 ------------------------------------------------------------*/
 .archive .page-title, .search .page-title {background-color:#ffffcc; padding:6px; font-size:18px; line-height: 18px; text-align: center; font-family: Georgia; border:1px solid yellow;}
 
-
+#colophon a:hover{color:#3b6ea5;}
 
 .error404 #searchform #s {margin-bottom:20px; width:100%; padding:6px 4px;}
 .error404 .widgettitle {font-weight: bold}

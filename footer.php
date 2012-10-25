@@ -16,7 +16,7 @@
 			<?php do_action( 'clean_as_a_whistle_credits' ); ?>
 			<a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'clean_as_a_whistle' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', 'clean_as_a_whistle' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'clean_as_a_whistle' ), 'clean_as_a_whistle', '<a href="http://automattic.com/" rel="designer">Automattic</a>' ); ?>
+			<?php printf( __( 'Theme: %1$s by %2$s.', 'clean_as_a_whistle' ), '<a href=" http://azeemazeez.com/blogs/clean-as-a-whistle/">Clean as a whistle</a>', '<a href="http://azeemazeez.com/" rel="designer">Azeem Azeez</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon .site-footer -->
 </div><!-- #page .hfeed .site -->

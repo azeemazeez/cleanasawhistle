@@ -35,6 +35,8 @@ function clean_as_a_whistle_theme_options_init() {
 	add_settings_field( 'site_title_case', __( 'Show site tite in:', 'clean_as_a_whistle' ), 'clean_as_a_whistle_settings_field_site_title_case', 'theme_options', 'general' );
 
 	add_settings_field( 'title_color_radio_buttons', __( 'Title color:', 'clean_as_a_whistle' ), 'clean_as_a_whistle_settings_title_color_radio_buttons', 'theme_options', 'general' );
+
+	add_settings_field( 'page_width_radio_buttons', __( 'Page width:', 'clean_as_a_whistle' ), 'clean_as_a_whistle_settings_page_width_radio_buttons', 'theme_options', 'general' );
 }
 add_action( 'admin_init', 'clean_as_a_whistle_theme_options_init' );
 
@@ -107,6 +109,26 @@ function clean_as_a_whistle_title_color_radio_buttons() {
 }
 
 
+function clean_as_a_whistle_page_width_radio_buttons() {
+	$site_title_case = array(
+		'600' => array(
+			'value' => '600',
+			'label' => __( '600px', 'clean_as_a_whistle' )
+		),
+		// '800' => array(
+		// 	'value' => '800',
+		// 	'label' => __( '800px', 'clean_as_a_whistle' )
+		// ),
+		'960' => array(
+			'value' => '960',
+			'label' => __( '960px', 'clean_as_a_whistle' )
+		)
+	);
+
+	return apply_filters( 'clean_as_a_whistle_page_width_radio_buttons', $site_title_case );
+}
+
+
 /**
  * Returns the options array for Clean as a whistle.
  *
@@ -117,6 +139,7 @@ function clean_as_a_whistle_get_theme_options() {
 	$defaults = array(
 		'site_title_case'  => 'none',
 		'title_color_radio_buttons'	=> 'black',
+		'page_width_radio_buttons'	=> '600',
 	);
 
 	$defaults = apply_filters( 'clean_as_a_whistle_default_theme_options', $defaults );
@@ -154,6 +177,22 @@ function clean_as_a_whistle_settings_title_color_radio_buttons() {
 	<div class="layout">
 		<label class="description">
 			<input type="radio" name="clean_as_a_whistle_theme_options[title_color_radio_buttons]" value="<?php echo esc_attr( $button['value'] ); ?>" <?php checked( $options['title_color_radio_buttons'], $button['value'] ); ?> />
+			<?php echo $button['label']; ?>
+		</label>
+	</div>
+	<?php
+	} ?><hr /><?php 
+}
+
+
+function clean_as_a_whistle_settings_page_width_radio_buttons() {
+	$options = clean_as_a_whistle_get_theme_options();
+
+	foreach ( clean_as_a_whistle_page_width_radio_buttons() as $button ) {
+	?>
+	<div class="layout">
+		<label class="description">
+			<input type="radio" name="clean_as_a_whistle_theme_options[page_width_radio_buttons]" value="<?php echo esc_attr( $button['value'] ); ?>" <?php checked( $options['page_width_radio_buttons'], $button['value'] ); ?> />
 			<?php echo $button['label']; ?>
 		</label>
 	</div>
@@ -217,6 +256,9 @@ function clean_as_a_whistle_theme_options_validate( $input ) {
 
 	if ( isset( $input['title_color_radio_buttons'] ) && array_key_exists( $input['title_color_radio_buttons'], clean_as_a_whistle_title_color_radio_buttons() ) )
 		$output['title_color_radio_buttons'] = $input['title_color_radio_buttons'];
+
+	if ( isset( $input['page_width_radio_buttons'] ) && array_key_exists( $input['page_width_radio_buttons'], clean_as_a_whistle_page_width_radio_buttons() ) )
+		$output['page_width_radio_buttons'] = $input['page_width_radio_buttons'];
 
 	// The sample textarea must be safe text with the allowed tags for posts
 	if ( isset( $input['sample_textarea'] ) && ! empty( $input['sample_textarea'] ) )

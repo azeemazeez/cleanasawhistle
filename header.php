@@ -51,6 +51,8 @@ if ($options['title_color_radio_buttons'] == "black") {$title_color = "#000";}
 ?>
 .site-title, .site-title a {color:<?php echo $title_color ?>;}
 .entry-title, .entry-title a {color:<?php echo $title_color ?>;}
+
+#page {width:<?php echo $options['page_width_radio_buttons']; ?>px;}
 </style>
 </head>
 
