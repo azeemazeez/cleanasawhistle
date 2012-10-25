@@ -40,73 +40,17 @@
 <![endif]-->
 
 <?php wp_head(); ?>
-
+<?php $options = get_option('clean_as_a_whistle_theme_options'); ?>
 <style>
-/* - STRUCUTRE
-------------------------------------------------------------*/
-#page {width:600px; margin:20px auto 0;}
-#masthead {text-align: center}
-#page a {text-decoration: none; color:#555;}
-#page a:hover {text-decoration: underline}
 
-/* - SITE STRUCTURE
-------------------------------------------------------------*/
-.site-title {font-size:38px; color:#000; font-family: Georgia}
-.site-title a {color:#000;}
-.site-description {color:#666; font-size:13px;}
-.menu {border-top:1px solid #cacaca; text-align: center; margin:10px 0 60px; padding-top:10px;}
-.menu li {display: inline; float:none; font-size:12px; margin:0 6px;}
-.main-navigation a {display:inline;}
+.site-title {text-transform: <?php echo $options['site_title_case']; ?>}
 
-/* - POST STRUCUTRE
-------------------------------------------------------------*/
-.entry-title {text-align:center; font-size: 24px; line-height: 26px; margin-top:60px; font-family: Georgia;}
-.entry-title a {color:#444;}
-.entry-meta {text-align:center; font-size:12px; color:#777;}
-.entry-meta a {color:#777;}
-.entry-content {font-size:14px; color:#333;}
-#page .entry-content a {color:#000; text-decoration: underline}
-#page .entry-content a:hover {color:#3b6ea5;}
-blockquote {border-left:4px solid #cacaca; padding-left:14px; margin-left:20px;}
-footer.entry-meta {border-bottom:1px solid #cacaca; padding-bottom:10px; padding-top:10px;}
-
-/* - SIDEBAR (FOOTER)
-------------------------------------------------------------*/
-#secondary {float:left; width:100%;}
-.sidebar {width:48%; font-size:14px; margin-top:20px; color:#	555;}
-#secondary .sidebar a {color:#999; text-decoration: underline}
-#secondary .sidebar a:hover {color:#3b6ea5;}
-#sidebar-1 {float:left;}
-#sidebar-2 {float:right;}
-.sidebar ul {margin:0; padding:0;}
-.sidebar li {margin:0 0 0 26px; padding:0 0 0 0;}
-
-/* - FOOTER ABOUT
-------------------------------------------------------------*/
-#colophon {font-size:12px; text-align: center; clear:both; padding:60px 0 10px; color:#555;}
-#colophon a {color:#555;}
-
-/* - SINGLE PAGE
-------------------------------------------------------------*/
-.site-content .site-navigation {clear:both; font-size:12px;}
-.site-content .nav-previous {font-size:16px;}
-
-#nav-below {border-bottom:1px solid #cacaca; padding-bottom:10px;}
-.post {margin-bottom:14px;}
-#comments {font-size:13px; margin-top:40px; border-bottom:1px solid #cacaca; margin-bottom:20px;}
-.comments-title, #reply-title {font-size:20px; font-family: Georgia; color:#333;}
-.comment-notes {color:#999; font-size:12px;}
-#comments p {margin-bottom:18px;}
-#comments input {margin-right:250px; width:260px; float:right; }
-.form-allowed-tags, .form-allowed-tags code {font-size:11px; color:#999;}
-#comments .form-submit input {margin-right:0; float:none;}
-
-.commentlist {margin:12px 0 30px 26px;}
-.comment .avatar {float:left; margin:0 6px 6px 0;}
-
-/* - ARCHIVES
-------------------------------------------------------------*/
-.archive .page-title, .search .page-title {background-color:#ffffcc; padding:6px; font-size:18px; line-height: 18px; text-align: center; font-family: Georgia; border:1px solid yellow;}
+<?php
+if ($options['title_color_radio_buttons'] == "blue") {$title_color = "#3b6ea5";}
+if ($options['title_color_radio_buttons'] == "black") {$title_color = "#000";}
+?>
+.site-title, .site-title a {color:<?php echo $title_color ?>;}
+.entry-title, .entry-title a {color:<?php echo $title_color ?>;}
 </style>
 </head>
 

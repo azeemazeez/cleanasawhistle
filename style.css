@@ -1,9 +1,9 @@
 /*
 Theme Name: Clean as a whistle
-Theme URI: http://underscores.me/
+Theme URI: http://azeemazeez.com/blogs/clean-as-a-whistle
 Author: Azeem Azeez
 Author URI: http://azeemazeez.com
-Description: Description
+Description: A clean black-and-white theme for Wordpress
 Version: 1.0
 License: GNU General Public License
 License URI: license.txt
@@ -549,3 +549,96 @@ object {
 #searchsubmit {
 	display: none;
 }
+
+
+
+
+/* ============================
+THEME SPECIFIC CSS STARTS BELOW
+============================ */
+
+
+
+
+
+
+/* - STRUCUTRE
+------------------------------------------------------------*/
+#page {width:600px; margin:40px auto 0;}
+#masthead {text-align: center}
+
+#masthead a {text-decoration: none;}
+#masthead a:hover {text-decoration: underline; color: #3b6ea5}
+
+a, a:visited {text-decoration: none; color:#555;}
+a:hover {text-decoration: underline}
+
+/* - SITE STRUCTURE
+------------------------------------------------------------*/
+.site-title {font-size:38px; color:#000; font-family: Georgia; line-height: 38px}
+.site-title a {color:#000;}
+.site-description {color:#555; font-size:13px;}
+.menu {border-top:1px solid #cacaca; border-bottom:1px solid #cacaca; text-align: center; margin:18px 0 60px; padding:6px 0;}
+.menu li {display: inline; float:none; font-size:12px; margin:0 6px;}
+.main-navigation a {display:inline; color:#000; text-transform: uppercase;}
+
+/* - POST STRUCUTRE
+------------------------------------------------------------*/
+.entry-title {text-align:center; font-size: 28px; line-height: 26px; margin-top:60px; font-family: Georgia;}
+.entry-title a {color:#333;}
+.entry-meta {text-align:center; font-size:12px; color:#777;}
+.entry-meta a {color:#777;}
+.entry-content {font-size:14px; color:#333;}
+#page .entry-content a {color:#000; text-decoration: underline}
+#page .entry-content a:hover {color:#3b6ea5;}
+blockquote {border-left:4px solid #cacaca; padding-left:14px; margin-left:20px;}
+footer.entry-meta {border-bottom:1px solid #cacaca; padding-bottom:10px; padding-top:10px;}
+
+/* - SIDEBAR (FOOTER)
+------------------------------------------------------------*/
+#secondary {float:left; width:100%;}
+.sidebar {width:48%; font-size:14px; margin-top:20px; color:#	555;}
+#secondary .sidebar a {color:#999; text-decoration: underline}
+#secondary .sidebar a:hover {color:#3b6ea5;}
+#sidebar-1 {float:left;}
+#sidebar-2 {float:right;}
+.sidebar ul {margin:0; padding:0;}
+.sidebar li {margin:0 0 0 26px; padding:0 0 0 0;}
+
+/* - FOOTER ABOUT
+------------------------------------------------------------*/
+#colophon {font-size:12px; text-align: center; clear:both; padding:60px 0 10px; color:#555;}
+#colophon a {color:#555;}
+
+/* - SINGLE PAGE
+------------------------------------------------------------*/
+.site-content .site-navigation {clear:both; font-size:12px;}
+.site-content .nav-previous {font-size:16px;}
+
+#nav-below {border-bottom:1px solid #cacaca; padding-bottom:10px;}
+.post {margin-bottom:14px;}
+#comments {font-size:13px; margin-top:40px; border-bottom:1px solid #cacaca; margin-bottom:20px;}
+.comments-title, #reply-title {font-size:20px; font-family: Georgia; color:#333;}
+.comment-notes {color:#999; font-size:12px;}
+#comments p {margin-bottom:18px;}
+#comments input {margin-right:250px; width:260px; float:right; }
+.form-allowed-tags, .form-allowed-tags code {font-size:11px; color:#999;}
+#comments .form-submit input {margin-right:0; float:none;}
+.awaiting-moderation {background-color:#ffffcc; padding:2px;}
+.commentlist {margin:12px 0 30px 26px;}
+.commentlist .children {list-style-type: none; margin:14px 0 0px 40px;}
+
+li.comment {border-bottom:1px solid #cacaca; padding:10px 0 6px; margin-bottom:0;}
+li.comment .children li{border-bottom:none;}
+.comment footer a {color:#555; text-decoration: underline}
+.comment footer a:hover {color:#3b6ea5;}
+.comment .avatar {float:left; margin:0 6px 6px 0;}
+
+/* - ARCHIVES
+------------------------------------------------------------*/
+.archive .page-title, .search .page-title {background-color:#ffffcc; padding:6px; font-size:18px; line-height: 18px; text-align: center; font-family: Georgia; border:1px solid yellow;}
+
+
+
+.error404 #searchform #s {margin-bottom:20px; width:100%; padding:6px 4px;}
+.error404 .widgettitle {font-weight: bold}

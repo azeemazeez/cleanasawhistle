@@ -31,20 +31,10 @@ function clean_as_a_whistle_theme_options_init() {
 		'__return_false', // Section callback (we don't want anything)
 		'theme_options' // Menu slug, used to uniquely identify the page; see clean_as_a_whistle_theme_options_add_page()
 	);
+	
+	add_settings_field( 'site_title_case', __( 'Show site tite in:', 'clean_as_a_whistle' ), 'clean_as_a_whistle_settings_field_site_title_case', 'theme_options', 'general' );
 
-	// Register our individual settings fields
-	add_settings_field(
-		'sample_checkbox', // Unique identifier for the field for this section
-		__( 'Sample Checkbox', 'clean_as_a_whistle' ), // Setting field label
-		'clean_as_a_whistle_settings_field_sample_checkbox', // Function that renders the settings field
-		'theme_options', // Menu slug, used to uniquely identify the page; see clean_as_a_whistle_theme_options_add_page()
-		'general' // Settings section. Same as the first argument in the add_settings_section() above
-	);
-
-	add_settings_field( 'sample_text_input', __( 'Sample Text Input', 'clean_as_a_whistle' ), 'clean_as_a_whistle_settings_field_sample_text_input', 'theme_options', 'general' );
-	add_settings_field( 'sample_select_options', __( 'Sample Select Options', 'clean_as_a_whistle' ), 'clean_as_a_whistle_settings_field_sample_select_options', 'theme_options', 'general' );
-	add_settings_field( 'sample_radio_buttons', __( 'Sample Radio Buttons', 'clean_as_a_whistle' ), 'clean_as_a_whistle_settings_field_sample_radio_buttons', 'theme_options', 'general' );
-	add_settings_field( 'sample_textarea', __( 'Sample Textarea', 'clean_as_a_whistle' ), 'clean_as_a_whistle_settings_field_sample_textarea', 'theme_options', 'general' );
+	add_settings_field( 'title_color_radio_buttons', __( 'Title color:', 'clean_as_a_whistle' ), 'clean_as_a_whistle_settings_title_color_radio_buttons', 'theme_options', 'general' );
 }
 add_action( 'admin_init', 'clean_as_a_whistle_theme_options_init' );
 
@@ -81,64 +71,41 @@ function clean_as_a_whistle_theme_options_add_page() {
 add_action( 'admin_menu', 'clean_as_a_whistle_theme_options_add_page' );
 
 /**
- * Returns an array of sample select options registered for Clean as a whistle.
- *
- * @since Clean as a whistle 1.0
- */
-function clean_as_a_whistle_sample_select_options() {
-	$sample_select_options = array(
-		'0' => array(
-			'value' =>	'0',
-			'label' => __( 'Zero', 'clean_as_a_whistle' )
-		),
-		'1' => array(
-			'value' =>	'1',
-			'label' => __( 'One', 'clean_as_a_whistle' )
-		),
-		'2' => array(
-			'value' => '2',
-			'label' => __( 'Two', 'clean_as_a_whistle' )
-		),
-		'3' => array(
-			'value' => '3',
-			'label' => __( 'Three', 'clean_as_a_whistle' )
-		),
-		'4' => array(
-			'value' => '4',
-			'label' => __( 'Four', 'clean_as_a_whistle' )
-		),
-		'5' => array(
-			'value' => '5',
-			'label' => __( 'Five', 'clean_as_a_whistle' )
-		)
-	);
-
-	return apply_filters( 'clean_as_a_whistle_sample_select_options', $sample_select_options );
-}
-
-/**
  * Returns an array of sample radio options registered for Clean as a whistle.
  *
  * @since Clean as a whistle 1.0
  */
-function clean_as_a_whistle_sample_radio_buttons() {
-	$sample_radio_buttons = array(
-		'yes' => array(
-			'value' => 'yes',
-			'label' => __( 'Yes', 'clean_as_a_whistle' )
+function clean_as_a_whistle_site_title_case() {
+	$site_title_case = array(
+		'none' => array(
+			'value' => 'none',
+			'label' => __( 'Normal case', 'clean_as_a_whistle' )
 		),
-		'no' => array(
-			'value' => 'no',
-			'label' => __( 'No', 'clean_as_a_whistle' )
-		),
-		'maybe' => array(
-			'value' => 'maybe',
-			'label' => __( 'Maybe', 'clean_as_a_whistle' )
+		'uppercase' => array(
+			'value' => 'uppercase',
+			'label' => __( 'Upper case', 'clean_as_a_whistle' )
 		)
 	);
 
-	return apply_filters( 'clean_as_a_whistle_sample_radio_buttons', $sample_radio_buttons );
+	return apply_filters( 'clean_as_a_whistle_site_title_case', $site_title_case );
 }
+
+
+function clean_as_a_whistle_title_color_radio_buttons() {
+	$site_title_case = array(
+		'black' => array(
+			'value' => 'black',
+			'label' => __( 'Black', 'clean_as_a_whistle' )
+		),
+		'blue' => array(
+			'value' => 'blue',
+			'label' => __( 'Blue', 'clean_as_a_whistle' )
+		)
+	);
+
+	return apply_filters( 'clean_as_a_whistle_title_color_radio_buttons', $site_title_case );
+}
+
 
 /**
  * Returns the options array for Clean as a whistle.
@@ -148,15 +115,11 @@ function clean_as_a_whistle_sample_radio_buttons() {
 function clean_as_a_whistle_get_theme_options() {
 	$saved = (array) get_option( 'clean_as_a_whistle_theme_options' );
 	$defaults = array(
-		'sample_checkbox'       => 'off',
-		'sample_text_input'     => '',
-		'sample_select_options' => '',
-		'sample_radio_buttons'  => '',
-		'sample_textarea'       => '',
+		'site_title_case'  => 'none',
+		'title_color_radio_buttons'	=> 'black',
 	);
 
 	$defaults = apply_filters( 'clean_as_a_whistle_default_theme_options', $defaults );
-
 	$options = wp_parse_args( $saved, $defaults );
 	$options = array_intersect_key( $options, $defaults );
 
@@ -164,84 +127,38 @@ function clean_as_a_whistle_get_theme_options() {
 }
 
 /**
- * Renders the sample checkbox setting field.
- */
-function clean_as_a_whistle_settings_field_sample_checkbox() {
-	$options = clean_as_a_whistle_get_theme_options();
-	?>
-	<label for="sample-checkbox">
-		<input type="checkbox" name="clean_as_a_whistle_theme_options[sample_checkbox]" id="sample-checkbox" <?php checked( 'on', $options['sample_checkbox'] ); ?> />
-		<?php _e( 'A sample checkbox.', 'clean_as_a_whistle' ); ?>
-	</label>
-	<?php
-}
-
-/**
- * Renders the sample text input setting field.
- */
-function clean_as_a_whistle_settings_field_sample_text_input() {
-	$options = clean_as_a_whistle_get_theme_options();
-	?>
-	<input type="text" name="clean_as_a_whistle_theme_options[sample_text_input]" id="sample-text-input" value="<?php echo esc_attr( $options['sample_text_input'] ); ?>" />
-	<label class="description" for="sample-text-input"><?php _e( 'Sample text input', 'clean_as_a_whistle' ); ?></label>
-	<?php
-}
-
-/**
- * Renders the sample select options setting field.
- */
-function clean_as_a_whistle_settings_field_sample_select_options() {
-	$options = clean_as_a_whistle_get_theme_options();
-	?>
-	<select name="clean_as_a_whistle_theme_options[sample_select_options]" id="sample-select-options">
-		<?php
-			$selected = $options['sample_select_options'];
-			$p = '';
-			$r = '';
-
-			foreach ( clean_as_a_whistle_sample_select_options() as $option ) {
-				$label = $option['label'];
-				if ( $selected == $option['value'] ) // Make default first in list
-					$p = "\n\t<option style=\"padding-right: 10px;\" selected='selected' value='" . esc_attr( $option['value'] ) . "'>$label</option>";
-				else
-					$r .= "\n\t<option style=\"padding-right: 10px;\" value='" . esc_attr( $option['value'] ) . "'>$label</option>";
-			}
-			echo $p . $r;
-		?>
-	</select>
-	<label class="description" for="sample_theme_options[selectinput]"><?php _e( 'Sample select input', 'clean_as_a_whistle' ); ?></label>
-	<?php
-}
-
-/**
  * Renders the radio options setting field.
  *
  * @since Clean as a whistle 1.0
  */
-function clean_as_a_whistle_settings_field_sample_radio_buttons() {
+function clean_as_a_whistle_settings_field_site_title_case() {
 	$options = clean_as_a_whistle_get_theme_options();
 
-	foreach ( clean_as_a_whistle_sample_radio_buttons() as $button ) {
+	foreach ( clean_as_a_whistle_site_title_case() as $button ) {
 	?>
 	<div class="layout">
 		<label class="description">
-			<input type="radio" name="clean_as_a_whistle_theme_options[sample_radio_buttons]" value="<?php echo esc_attr( $button['value'] ); ?>" <?php checked( $options['sample_radio_buttons'], $button['value'] ); ?> />
+			<input type="radio" name="clean_as_a_whistle_theme_options[site_title_case]" value="<?php echo esc_attr( $button['value'] ); ?>" <?php checked( $options['site_title_case'], $button['value'] ); ?> />
 			<?php echo $button['label']; ?>
 		</label>
 	</div>
 	<?php
-	}
+	} ?><hr /><?php 
 }
-
-/**
- * Renders the sample textarea setting field.
- */
-function clean_as_a_whistle_settings_field_sample_textarea() {
+		 
+function clean_as_a_whistle_settings_title_color_radio_buttons() {
 	$options = clean_as_a_whistle_get_theme_options();
+
+	foreach ( clean_as_a_whistle_title_color_radio_buttons() as $button ) {
 	?>
-	<textarea class="large-text" type="text" name="clean_as_a_whistle_theme_options[sample_textarea]" id="sample-textarea" cols="50" rows="10" /><?php echo esc_textarea( $options['sample_textarea'] ); ?></textarea>
-	<label class="description" for="sample-textarea"><?php _e( 'Sample textarea', 'clean_as_a_whistle' ); ?></label>
+	<div class="layout">
+		<label class="description">
+			<input type="radio" name="clean_as_a_whistle_theme_options[title_color_radio_buttons]" value="<?php echo esc_attr( $button['value'] ); ?>" <?php checked( $options['title_color_radio_buttons'], $button['value'] ); ?> />
+			<?php echo $button['label']; ?>
+		</label>
+	</div>
 	<?php
+	} ?><hr /><?php 
 }
 
 /**
@@ -295,8 +212,11 @@ function clean_as_a_whistle_theme_options_validate( $input ) {
 		$output['sample_select_options'] = $input['sample_select_options'];
 
 	// The sample radio button value must be in our array of radio button values
-	if ( isset( $input['sample_radio_buttons'] ) && array_key_exists( $input['sample_radio_buttons'], clean_as_a_whistle_sample_radio_buttons() ) )
-		$output['sample_radio_buttons'] = $input['sample_radio_buttons'];
+	if ( isset( $input['site_title_case'] ) && array_key_exists( $input['site_title_case'], clean_as_a_whistle_site_title_case() ) )
+		$output['site_title_case'] = $input['site_title_case'];
+
+	if ( isset( $input['title_color_radio_buttons'] ) && array_key_exists( $input['title_color_radio_buttons'], clean_as_a_whistle_title_color_radio_buttons() ) )
+		$output['title_color_radio_buttons'] = $input['title_color_radio_buttons'];
 
 	// The sample textarea must be safe text with the allowed tags for posts
 	if ( isset( $input['sample_textarea'] ) && ! empty( $input['sample_textarea'] ) )
