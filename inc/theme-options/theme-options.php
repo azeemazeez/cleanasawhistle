@@ -34,7 +34,7 @@ function clean_as_a_whistle_theme_options_init() {
 	
 	add_settings_field( 'site_title_case', __( 'Show site tite in:', 'clean_as_a_whistle' ), 'clean_as_a_whistle_settings_field_site_title_case', 'theme_options', 'general' );
 
-	add_settings_field( 'title_color_radio_buttons', __( 'Title color:', 'clean_as_a_whistle' ), 'clean_as_a_whistle_settings_title_color_radio_buttons', 'theme_options', 'general' );
+	add_settings_field( 'title_color_radio_buttons', __( 'Heading color<br />(site name and article titles):', 'clean_as_a_whistle' ), 'clean_as_a_whistle_settings_title_color_radio_buttons', 'theme_options', 'general' );
 
 	add_settings_field( 'page_width_radio_buttons', __( 'Page width:', 'clean_as_a_whistle' ), 'clean_as_a_whistle_settings_page_width_radio_buttons', 'theme_options', 'general' );
 }
@@ -85,7 +85,7 @@ function clean_as_a_whistle_site_title_case() {
 		),
 		'uppercase' => array(
 			'value' => 'uppercase',
-			'label' => __( 'Upper case', 'clean_as_a_whistle' )
+			'label' => __( 'UPPER CASE', 'clean_as_a_whistle' )
 		)
 	);
 
@@ -101,7 +101,7 @@ function clean_as_a_whistle_title_color_radio_buttons() {
 		),
 		'blue' => array(
 			'value' => 'blue',
-			'label' => __( 'Blue', 'clean_as_a_whistle' )
+			'label' => __( '<span style="color:#3b6ea5">Blue</span>', 'clean_as_a_whistle' )
 		)
 	);
 
@@ -113,7 +113,7 @@ function clean_as_a_whistle_page_width_radio_buttons() {
 	$site_title_case = array(
 		'600' => array(
 			'value' => '600',
-			'label' => __( '600px', 'clean_as_a_whistle' )
+			'label' => __( '600px (narrow)', 'clean_as_a_whistle' )
 		),
 		// '800' => array(
 		// 	'value' => '800',
@@ -121,7 +121,7 @@ function clean_as_a_whistle_page_width_radio_buttons() {
 		// ),
 		'960' => array(
 			'value' => '960',
-			'label' => __( '960px', 'clean_as_a_whistle' )
+			'label' => __( '960px (wide)', 'clean_as_a_whistle' )
 		)
 	);
 

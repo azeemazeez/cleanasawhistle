@@ -4,7 +4,7 @@ Theme URI: http://azeemazeez.com/blogs/clean-as-a-whistle
 Author: Azeem Azeez
 Author URI: http://azeemazeez.com
 Description: A clean black-and-white theme for Wordpress
-Version: 1.0
+Version: 0.1
 License: GNU General Public License
 License URI: license.txt
 Tags:
@@ -588,7 +588,7 @@ a:hover {color:#3b6ea5;}
 ------------------------------------------------------------*/
 .entry-header a {text-decoration: none}
 .entry-header a:hover {text-decoration: underline}
-.entry-title {text-align:center; font-size: 28px; line-height: 26px; margin-top:60px; font-family: Georgia;}
+.entry-title {text-align:center; font-size: 28px; line-height: 30px; margin-top:60px; font-family: Georgia;}
 .entry-title a {color:#333;}
 .entry-title a:hover {color:#3b6ea5;}
 .entry-meta {text-align:center; font-size:12px; color:#777;}
@@ -645,7 +645,11 @@ li.comment .children li{border-bottom:none;}
 ------------------------------------------------------------*/
 .archive .page-title, .search .page-title {background-color:#ffffcc; padding:6px; font-size:18px; line-height: 18px; text-align: center; font-family: Georgia; border:1px solid yellow;}
 
+/* - FOOTER
+------------------------------------------------------------*/
 #colophon a:hover{color:#3b6ea5;}
 
+/* - 404
+------------------------------------------------------------*/
 .error404 #searchform #s {margin-bottom:20px; width:100%; padding:6px 4px;}
 .error404 .widgettitle {font-weight: bold}

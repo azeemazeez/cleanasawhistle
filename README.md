@@ -1,7 +1,6 @@
 Clean as a whistle
 ===
 
-Hello there, I am a wordpress theme called "Clean as a whistle", and I'm a minimal, clean theme for Wordpress.
+Hello there, "Clean is a whistle" is a minimalist and clean theme for Wordpress.
 
-
-Good luck!
+![Clean as a whistle](http://azeemazeez.com/images/clean-as-a-whistle-big.jpg)
